@@ -1,0 +1,14 @@
+[
+    {
+        "name": "VR Experience One",
+        "videoUrl": "/vibes.mp4",
+        "description": "Explore virtual worlds with VR Experience One.",
+        "link": "https://example.com/vr1"
+    },
+    {
+        "name": "VR Game Adventure",
+        "videoUrl": "/vibes.mp4",
+        "description": "Immerse yourself in an epic VR adventure.",
+        "link": "https://example.com/vr2"
+    }
+]

@@ -1,0 +1,101 @@
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+    /* Hero section styles */
+/* New styles for the hero section */
+.hero {
+    text-align: center;
+    padding: 50px;
+    color: #fff;
+}
+
+.hero-title {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+.hero-description {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+
+/* Styles for the category navigation */
+.category-nav {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.category-btn {
+    background: none;
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    margin: 0 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background-color: #6200ea;
+}
+
+
+.vr-app-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.video-container {
+    position: relative;
+}
+
+.category-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+.vr-app {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 8px;
+    overflow: hidden; /* Add this to prevent any overflow */
+}
+
+/* .vr-app video {
+    max-width: 100%; /* Maximum width of video is the full width of its container 
+    height: auto; /* Maintain aspect ratio 
+    border-radius: 8px;
+} */
+
+.vr-app video {
+    width: 100%; /* Video width should be 100% of the container */
+    height: auto; /* Height should adjust automatically */
+    max-height: 500px; /* Maximum height can be set to limit the video size */
+    border-radius: 8px;
+    object-fit: contain; /* Ensures the video is scaled correctly within its element */
+}
+
+.button {
+    background-color: #6200ea;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block; /* Allows the use of text-decoration */
+    text-align: center;
+    text-decoration: none; /* Removes underline from links styled as buttons */
+}
