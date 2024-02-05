@@ -1,9 +1,12 @@
+const isMobile = window.innerWidth <= 600;
+
 document.addEventListener("DOMContentLoaded", () => {
     // Initialize the category buttons event listeners
     document.querySelectorAll('.category-btn').forEach(button => {
         button.addEventListener('click', function() {
             document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active')); // Remove active class from all buttons
             this.classList.add('active'); // Add active class to the clicked button
+
             fetchVrApps(this.getAttribute('data-category'));
         });
     });
@@ -40,6 +43,22 @@ function displayVrApps(vrApps) {
             <p>${app.description}</p>
             <a href="${app.link}" target="_blank" class="button">GET</a>
         `;
+        if (isMobile) {
+            const playPauseButton = document.createElement('button');
+            playPauseButton.className = 'play-pause-btn'; // Add class for styling
+            playPauseButton.innerText = 'Play/Pause';
+            playPauseButton.onclick = function() {
+                const video = appElement.querySelector('.vr-video');
+                if (video.paused) {
+                    video.play();
+                    this.innerText = 'Pause'; // Update button text
+                } else {
+                    video.pause();
+                    this.innerText = 'Play'; // Update button text
+                }
+            };
+            appElement.querySelector('.video-container').appendChild(playPauseButton); // Append to the video container
+        }
         container.appendChild(appElement);
     });
 
@@ -53,14 +72,14 @@ function setupVideoAutoplay() {
         entries.forEach(entry => {
             if (!entry.isIntersecting) {
                 entry.target.pause();
-            } else {
+            } else if (!isMobile) { // Check if not on mobile before playing
                 entry.target.play();
             }
         });
     }, {
-        root: null, // default is the viewport
+        root: null,
         rootMargin: '0px',
-        threshold: 0.1 // play when 10% of the video is visible
+        threshold: 0.1 // 10% threshold for play/pause
     });
 
     videos.forEach(video => {

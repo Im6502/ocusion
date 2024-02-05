@@ -82,9 +82,10 @@ body.dark-mode {
 .vr-app video {
     width: 100%; /* Video width should be 100% of the container */
     height: auto; /* Height should adjust automatically */
-    max-height: 500px; /* Maximum height can be set to limit the video size */
+    max-height: 300px; /* Maximum height can be set to limit the video size */
     border-radius: 8px;
     object-fit: contain; /* Ensures the video is scaled correctly within its element */
+    max-width: 100%;
 }
 
 .button {
@@ -98,4 +99,49 @@ body.dark-mode {
     display: inline-block; /* Allows the use of text-decoration */
     text-align: center;
     text-decoration: none; /* Removes underline from links styled as buttons */
+}
+
+/* Play/Pause Button Styles */
+.play-pause-btn {
+    position: absolute;
+    top: 50%; /* Center vertically in the video */
+    left: 50%; /* Center horizontally in the video */
+    transform: translate(-50%, -50%); /* Adjust to exact center */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: none; /* Hidden by default, shown only on mobile */
+    z-index: 2; /* Ensure it's above other content */
+}
+
+@media only screen and (max-width: 600px) {
+    .vr-app video {
+        height: auto; /* Adjust height automatically on mobile */
+    }
+
+    .hero-title {
+        font-size: 1.5em; /* Smaller text on mobile */
+    }
+
+    .hero-description {
+        font-size: 1em; /* Smaller text on mobile */
+    }
+
+    .category-nav {
+        flex-direction: column; /* Stack the category buttons on mobile */
+        align-items: center;
+    }
+
+    .category-btn {
+        margin-bottom: 10px; /* Add space between category buttons on mobile */
+    }
+
+    .play-pause-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
 }
