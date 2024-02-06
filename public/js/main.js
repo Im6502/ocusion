@@ -1,5 +1,9 @@
 const isMobile = window.innerWidth <= 600;
 
+function isMobileDevice() {
+    return window.innerWidth <= 600;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     // Initialize the category buttons event listeners
     document.querySelectorAll('.category-btn').forEach(button => {
@@ -34,7 +38,7 @@ function displayVrApps(vrApps) {
         appElement.innerHTML = `
             <h2>${app.name}</h2>
             <div class="video-container">
-                <video class="vr-video" controls muted loop preload="none">
+                <video class="vr-video" controls muted loop preload="metadata">
                     <source src="${app.videoUrl}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -43,7 +47,7 @@ function displayVrApps(vrApps) {
             <p>${app.description}</p>
             <a href="${app.link}" target="_blank" class="button">GET</a>
         `;
-        if (isMobile) {
+         if (isMobile) {
             const playPauseButton = document.createElement('button');
             playPauseButton.className = 'play-pause-btn'; // Add class for styling
             playPauseButton.innerText = 'Play/Pause';
@@ -68,12 +72,15 @@ function displayVrApps(vrApps) {
 function setupVideoAutoplay() {
     const videos = document.querySelectorAll('.vr-video');
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) {
                 entry.target.pause();
-            } else if (!isMobile) { // Check if not on mobile before playing
-                entry.target.play();
+            } else {
+                // Play only if it's not a mobile device
+                if (!isMobileDevice()) {
+                    entry.target.play();
+                }
             }
         });
     }, {
