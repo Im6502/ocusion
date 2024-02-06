@@ -3,6 +3,31 @@ body.dark-mode {
     color: #ffffff;
     font-family: Arial, sans-serif;
 }
+
+/* Centering Container */
+.center-container {
+    text-align: center;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Text Styling */
+.center-container p {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 18px;
+}
+
+/* Iframe Styling */
+.center-container iframe {
+    margin: 0 auto;
+    display: block;
+    border-radius: 0px !important;
+    background-color: transparent;
+}
+
+
     /* Hero section styles */
 /* New styles for the hero section */
 .hero {
